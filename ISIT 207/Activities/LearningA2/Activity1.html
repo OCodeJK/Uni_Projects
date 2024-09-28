@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML and CSS Demonstration</title>
+    <style>
+        /* Basic styles for body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            margin: 0;
+            padding: 10px;
+            background-color: #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        nav ul li {
+            float: left;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        /* Main content styles */
+        main {
+            padding: 20px;
+        }
+
+        /* Section and article styles */
+        section, article {
+            margin-bottom: 20px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px; /* Add margin to separate footer from content */
+        }
+
+        /* Image styles */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: antiquewhite;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        tr:hover {
+            background-color:#4CAF50;
+        }
+
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            nav ul li {
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>Welcome to HTML and CSS Demonstration</h1>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+        <!-- Section with a heading and paragraph -->
+        <section>
+            <h2>Introduction</h2>
+            <p>This document demonstrates the use of popular HTML tags and CSS properties.</p>
+        </section>
+
+        <!-- Article with an image and a caption -->
+        <article>
+            <h2>Article Section</h2>
+            <figure>
+                <img src="Resources/dog.jpg" width="600" height="400" alt="doggy">
+                <figcaption>Sample Image with a caption</figcaption>
+            </figure>
+            <p>This is a sample article with an image and a caption.</p>
+        </article>
+
+        <!-- Table example -->
+        <section>
+            <h2>HTML Table</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+                <tr>
+                    <td>John Doe</td>
+                    <td>30</td>
+                   
+                    <td>New York</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>25</td>
+                    <td>London</td>
+                </tr>
+                <tr>
+                    <td>JK</td>
+                    <td>100</td>
+                    <td>Wollongong</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Form example -->
+        <section>
+            <h2>Contact Form</h2>
+            <form action="#">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <input type="submit" value="Submit">
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 HTML and CSS Demonstration. All rights reserved.</p>
+    </footer>
+</body>
+</html>
