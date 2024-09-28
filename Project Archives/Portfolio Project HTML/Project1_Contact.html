@@ -1,0 +1,128 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to About Me</title>
+        <link rel="stylesheet" type=text/css href="style.css">
+        <style>
+            #contact{
+                border:6px #2E3532 solid;
+                background-color:#2E3532;
+            }
+            
+            #text1{
+                float:right;
+                font-family: Segoe Print;
+                text-shadow: 2px 2px 4px #D3EFBD;
+                font-size:30px;
+                color:#D3EFBD;
+            }  
+            
+            #port{
+                border: 3px #2E3532 solid;
+                background-color:#2E3532;
+            }
+            #about{
+                border: 3px #2E3532 solid;
+                background-color:#2E3532;
+            }
+            #social-media{
+                list-style-type:none;
+                float:left;
+            }
+            
+            #icon{
+                float:left;
+            }
+            #fb{
+                border:10px #2E3532 solid;
+            }
+            #fb1{
+                font-family: Segoe Print;
+                font-size: 30px;
+                text-decoration-line:underline;
+                background-color:#2E3532;
+                color:#D3EFBD;
+            }
+            #fb2{
+                font-family: Segoe Print;
+                font-size: 30px;
+                color:#D3EFBD;
+            }
+            #name{
+                margin-top:5px;
+                margin-bottom:5px; 
+                align-content:center;
+                float:left;
+                font-family: Segoe Print;
+                font-size: 24px;
+                color:#D3EFBD;
+                text-decoration-line:underline;
+            }
+            #texter{
+                margin-top:5px;
+                margin-bottom: 5px;
+                background-color:#8B2635;
+                border: 5px #2E3532 solid;
+                font-size: 30px;
+                font-family: Segoe Print;
+                color:#D3EFBD;
+            }
+            a {
+                color:#D3EFBD;
+            }
+            .main-menu{
+                font-size:24px;
+                font-family: Segoe Print;
+                text-shadow: 2px 2px 3px #D3EFBD;
+            }
+            #submit{
+                font-size:17px;
+                font-weight:bold;
+                margin-bottom:10px;
+            }
+            #reset{
+                font-size:17px;
+                font-weight:bold;
+                margin-bottom:10px;
+            }
+            #s1{
+                margin-top:6.5em;
+            }
+        </style>
+    </head>
+    <header id="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></header>
+    <body id="bodu">
+         <div id="main-container">
+        <nav id="nav-flex-container">
+            <ul class="main-menu">
+                <li><a href="index.html" title="home">Home</a></li>
+                <li><a href="Project1_Portfolio.html" title="Portfolio">Portfolio</a></li>
+                <li><a href="Project1_AboutMe.html" title="About Me">About Me</a></li>
+                <li id="contact"><a href="Project1_Contact.html" title="Contact">Contact Details</a></li>
+            </ul>
+        </nav>
+             <main>
+                 <div id="flex-container">
+                <section id="s1">
+                    <ul id="social-media">
+                        <li><p id="name"><a id="social" href="https://www.facebook.com/ooi.junkang"><img id="icon" src="images/Facebook.png">Alexsi Bae</a></p></li>
+                        <li><p id="name"><a id="social" href="https://twitter.com/OoiJunKang"><img id="icon" src="images/Twitter.png">Ooi Jun Kang</a></p></li>
+                        <li><p id="name"><a id="social" href="https://www.instagram.com/xenoficx"><img id="icon" src="images/Instagram.png">xenoficx</a></p></li>
+                    </ul>
+                </section>
+                     <form method="post" action="http://qna.nyp.edu.sg/EG1744/Form">
+                     <fieldset id="fb">
+                         <legend id="fb1">Feedback:</legend>
+                         <div>
+                             <textarea id="texter" name="feedback" placeholder="feedback here..." rows="10" cols="50" required></textarea>
+                             <input id="submit" type="submit" value="Submit">
+                             <input id="reset" type="reset" value="Reset">
+                         </div>
+                     </fieldset>
+                     </form>
+                 </div>
+             </main>
+        </div>
+    </body>
+        </html>

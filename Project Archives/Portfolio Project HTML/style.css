@@ -1,0 +1,48 @@
+*{
+                padding: 0px 0px 0px 0px;
+                margin:0px 20px 0px 20px;
+            }
+            @media screen and (min-width:500px){
+                nav ul {
+                    list-style-type:none;
+                    display:flex;
+                    justify-content:space-around;
+                    padding: 15px 0px 15px 0px;
+                    background-color:#8B2635;
+                }
+            }
+            #bodu {
+                background-color:#E0E2DB;
+            }
+             nav ul.subpage{
+                background-color:#8B2635;
+            }
+            nav a:visited{
+                color:#D3EFBD;
+            }
+            
+            nav a:link{
+                color: #D3EFBD;
+                text-decoration:none;
+            }
+            nav a:hover{
+                display:block;
+                padding:20px 0px 20px 0px;
+                background-color:#2E3532;
+            }
+            
+            #logo{
+                max-width:40%;
+                max-height:40%;
+            }
+            #flex-container{
+                display:flex;
+                margin: 10px 10px 10px 10px;
+                padding: 10px 10px 10px 10px;
+                background-color: #8B2635;
+            }
+            .main-menu{
+                font-size:24px;
+                font-family: Segoe Print;
+                text-shadow: 2px 2px 3px #D3EFBD;
+            }

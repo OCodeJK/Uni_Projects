@@ -1,0 +1,10 @@
+CSS for IAD Project
+
+.Headline1
+{
+  font-family : Segoe Print;
+  font-weight : bold;
+  font-size : 70px;
+  color : #D3EFBD;
+  color : rgb(211, 239, 189);
+}
