@@ -1,4 +1,4 @@
-*{
+*           {
                 padding: 0px 0px 0px 0px;
                 margin:0px 20px 0px 20px;
             }
@@ -11,7 +11,7 @@
                     background-color:#8B2635;
                 }
             }
-            #bodu {
+            #body {
                 background-color:#E0E2DB;
             }
              nav ul.subpage{
@@ -45,4 +45,20 @@
                 font-size:24px;
                 font-family: Segoe Print;
                 text-shadow: 2px 2px 3px #D3EFBD;
+            }
+            #text1{
+                float:right;
+                font-family: Segoe Print;
+                text-shadow: 2px 2px 4px #D3EFBD;
+                line-height:2.4em;
+                font-size:70px;
+                color:#D3EFBD;
+            }
+            #flexer{
+                border:6px #2E3532 solid;
+            }
+            
+            #Homer{
+                border: 3px #2E3532 solid;
+                background-color:#2E3532;
             }
