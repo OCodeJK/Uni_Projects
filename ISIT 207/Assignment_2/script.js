@@ -1,10 +1,14 @@
-document.getElementById("reservationForm").addEventListener("submit", function(event) {
-    const creditCardInput = document.getElementById("creditCard").value;
+document.getElementById("reservation-form").addEventListener("submit", function(event) {
+    const creditCardInput = document.getElementById("credit-card").value;
 
     if (!validateCreditCard(creditCardInput)) {
         alert("Please enter a valid credit card number.");
         event.preventDefault(); // Prevent form submission
+    } 
+    else {
+        alert("Thank you for reserving with us!");
     }
+
 });
 
 function validateCreditCard(cardNumber) {

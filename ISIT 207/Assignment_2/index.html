@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZoom Car Rental</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Header and Navigation -->
+
     <header>
         <div id="logo">
-            <img src="resources/images/azoom_logo.webp" alt="AZoom Car Rental Logo">
+            <a href="index.html"><img src="resources/images/azoom_logo.webp" alt="AZoom Car Rental Logo"></a>
         </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#cars">Cars</a></li>
                 <li><a href="#reservation">Reservation</a></li>
+                <li><a href="login.html">Login</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Banner Section -->
     <section id="home">
         <div class="banner">
             <h1>Welcome to AZoom Car Rental</h1>
@@ -33,7 +33,6 @@
         </div>
     </section>
 
-    <!-- Cars Section -->
     <section id="cars">
         <h2>Our Electric Cars</h2>
         <div class="car-list">
@@ -55,10 +54,9 @@
         </div>
     </section>
 
-    <!-- Reservation Form Section -->
     <section id="reservation">
         <h2>Reserve Your Car</h2>
-        <form id="reservationForm">
+        <form id="reservation-form" method="#">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -79,14 +77,13 @@
                 <option value="1-month">1 Month</option>
             </select>
 
-            <label for="creditCard">Credit Card Number:</label>
-            <input type="text" id="creditCard" name="creditCard" required>
+            <label for="credit-card">Credit Card Number:</label>
+            <input type="text" id="credit-card" name="credit-card" required>
 
             <button type="submit" class="btn">Submit Reservation</button>
         </form>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Branch 1: 123 Dover #10-576</p>
