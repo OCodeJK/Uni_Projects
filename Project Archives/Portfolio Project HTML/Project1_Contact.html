@@ -1,128 +1,180 @@
-<!Doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Welcome to About Me</title>
-        <link rel="stylesheet" type=text/css href="style.css">
-        <style>
-            #contact{
-                border:6px #2E3532 solid;
-                background-color:#2E3532;
-            }
-            
-            #text1{
-                float:right;
-                font-family: Segoe Print;
-                text-shadow: 2px 2px 4px #D3EFBD;
-                font-size:30px;
-                color:#D3EFBD;
-            }  
-            
-            #port{
-                border: 3px #2E3532 solid;
-                background-color:#2E3532;
-            }
-            #about{
-                border: 3px #2E3532 solid;
-                background-color:#2E3532;
-            }
-            #social-media{
-                list-style-type:none;
-                float:left;
-            }
-            
-            #icon{
-                float:left;
-            }
-            #fb{
-                border:10px #2E3532 solid;
-            }
-            #fb1{
-                font-family: Segoe Print;
-                font-size: 30px;
-                text-decoration-line:underline;
-                background-color:#2E3532;
-                color:#D3EFBD;
-            }
-            #fb2{
-                font-family: Segoe Print;
-                font-size: 30px;
-                color:#D3EFBD;
-            }
-            #name{
-                margin-top:5px;
-                margin-bottom:5px; 
-                align-content:center;
-                float:left;
-                font-family: Segoe Print;
-                font-size: 24px;
-                color:#D3EFBD;
-                text-decoration-line:underline;
-            }
-            #texter{
-                margin-top:5px;
-                margin-bottom: 5px;
-                background-color:#8B2635;
-                border: 5px #2E3532 solid;
-                font-size: 30px;
-                font-family: Segoe Print;
-                color:#D3EFBD;
-            }
-            a {
-                color:#D3EFBD;
-            }
-            .main-menu{
-                font-size:24px;
-                font-family: Segoe Print;
-                text-shadow: 2px 2px 3px #D3EFBD;
-            }
-            #submit{
-                font-size:17px;
-                font-weight:bold;
-                margin-bottom:10px;
-            }
-            #reset{
-                font-size:17px;
-                font-weight:bold;
-                margin-bottom:10px;
-            }
-            #s1{
-                margin-top:6.5em;
-            }
-        </style>
-    </head>
-    <header id="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></header>
-    <body id="bodu">
-         <div id="main-container">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <style>
+        /* Social Media Section */
+        #social-media-section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        #social-media {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #social-media li {
+            margin: 15px 0;
+        }
+
+        #social-media a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #social-media a:hover {
+            color: #f39c12;
+        }
+
+        #social-media img {
+            width: 30px;
+            height: auto;
+            margin-right: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #social-media a:hover img {
+            transform: scale(1.2);
+        }
+
+        /* Feedback Section */
+
+
+        #feedback-section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        #fb {
+            background-color: #f4f4f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #fb legend {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #fb textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 16px;
+        }
+
+        #fb input[type="submit"],
+        #fb input[type="reset"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #fb input[type="submit"]:hover,
+        #fb input[type="reset"]:hover {
+            background-color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Logo" />
+        </a>
+    </header>
+
+    <div id="main-container">
         <nav id="nav-flex-container">
             <ul class="main-menu">
-                <li><a href="index.html" title="home">Home</a></li>
-                <li><a href="Project1_Portfolio.html" title="Portfolio">Portfolio</a></li>
+                <li><a href="index.html" title="Home">Home</a></li>
+                <li>
+                    <a href="Project1_Portfolio.html" title="Portfolio">Portfolio</a>
+                </li>
                 <li><a href="Project1_AboutMe.html" title="About Me">About Me</a></li>
-                <li id="contact"><a href="Project1_Contact.html" title="Contact">Contact Details</a></li>
+                <li>
+                    <a href="Project1_Contact.html" title="Contact">Contact Details</a>
+                </li>
             </ul>
         </nav>
-             <main>
-                 <div id="flex-container">
-                <section id="s1">
+
+        <main>
+            <div id="flex-container">
+                <section id="social-media-section">
+                    <h2>Connect with Me</h2>
                     <ul id="social-media">
-                        <li><p id="name"><a id="social" href="https://www.facebook.com/ooi.junkang"><img id="icon" src="images/Facebook.png">Alexsi Bae</a></p></li>
-                        <li><p id="name"><a id="social" href="https://twitter.com/OoiJunKang"><img id="icon" src="images/Twitter.png">Ooi Jun Kang</a></p></li>
-                        <li><p id="name"><a id="social" href="https://www.instagram.com/xenoficx"><img id="icon" src="images/Instagram.png">xenoficx</a></p></li>
+                        <li>
+                            <a id="social" href="https://twitter.com/Xenoficx">
+                                <img id="icon" src="images/Twitter.png" alt="Twitter Icon" />
+                                Ooi Jun Kang
+                            </a>
+                        </li>
+                        <li>
+                            <a id="social" href="https://www.instagram.com/poketopui">
+                                <img id="icon" src="images/Instagram.png" alt="Instagram Icon" />
+                                @poketopui
+                            </a>
+                        </li>
+                        <li></li>
+                        <a id="social" href="https://github.com/OCodeJK/Uni_Projects">
+                            <img id="icon" src="images/github.png" alt="GitHub Icon" />
+                            GitHub
+                        </a>
+                        </li>
                     </ul>
                 </section>
-                     <form method="post" action="http://qna.nyp.edu.sg/EG1744/Form">
-                     <fieldset id="fb">
-                         <legend id="fb1">Feedback:</legend>
-                         <div>
-                             <textarea id="texter" name="feedback" placeholder="feedback here..." rows="10" cols="50" required></textarea>
-                             <input id="submit" type="submit" value="Submit">
-                             <input id="reset" type="reset" value="Reset">
-                         </div>
-                     </fieldset>
-                     </form>
-                 </div>
-             </main>
-        </div>
-    </body>
-        </html>
+
+                <section id="feedback-section">
+                    <h2>Send me Feedback</h2>
+                    <form method="post" action="#">
+                        <fieldset id="fb">
+                            <legend><strong>Feedback:</strong></legend>
+                            <div>
+                                <label for="texter">Your Feedback:</label>
+                                <textarea id="texter" name="feedback" placeholder="Enter your feedback here..."
+                                    rows="10" cols="50" required></textarea>
+                            </div>
+                            <div>
+                                <input id="submit" type="submit" value="Submit" />
+                                <input id="reset" type="reset" value="Reset" />
+                            </div>
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+    <footer>&copy; 2024 Jun Kang - All Rights Reserved</footer>
+</body>
+
+</html>
