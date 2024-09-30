@@ -114,8 +114,7 @@ nav ul li a:hover {
     justify-content: space-around;
     overflow-x:scroll;
     overflow-y:hidden;
-    white-space: nowrap;
-    
+    white-space: nowrap; 
 }
 
 .car_item {
