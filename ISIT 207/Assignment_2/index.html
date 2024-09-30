@@ -16,11 +16,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#cars">Cars</a></li>
-                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="returning.html">Returning</a></li>
                 <li><a href="login.html">Login</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#contact">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -35,18 +35,19 @@
 
     <section id="cars">
         <h2>Our Electric Cars</h2>
-        <div class="car-list">
-            <div class="car-item">
+        <div class="car_list">
+            <div class="car_item">
                 <img src="resources/images/tesla_m3.png" alt="Electric Car 1">
                 <h3>Tesla Model 3</h3>
                 <p>Starting at $50/day</p>
             </div>
-            <div class="car-item">
+            <div class="car_item">
                 <img src="resources/images/nissan_leaf.jpg" alt="Electric Car 2">
                 <h3>Nissan Leaf</h3>
                 <p>Starting at $40/day</p>
             </div>
-            <div class="car-item">
+            <div class="car_item">
+                <span class="tag">POPULAR</span>
                 <img src="resources/images/chevrolet_bolt.png" alt="Electric Car 3">
                 <h3>Chevrolet Bolt</h3>
                 <p>Starting at $45/day</p>
@@ -56,39 +57,41 @@
 
     <section id="reservation">
         <h2>Reserve Your Car</h2>
-        <form id="reservation-form" method="#">
+        <form id="reservation_form" method="#">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
 
             <label for="email">Email Address:</label>
             <input type="email" id="email" name="email" required>
 
-            <label for="carSelect">Choose a Car:</label>
-            <select id="carSelect" name="carSelect">
+            <label for="car_select">Choose a Car:</label>
+            <select id="car_select" name="car_select">
                 <option value="Tesla Model 3">Tesla Model 3</option>
                 <option value="Nissan Leaf">Nissan Leaf</option>
                 <option value="Chevrolet Bolt">Chevrolet Bolt</option>
             </select>
 
-            <label for="rentalPeriod">Rental Period:</label>
-            <select id="rentalPeriod" name="rentalPeriod">
+            <label for="rental_period">Rental Period:</label>
+            <select id="rental_period" name="rental_period">
                 <option value="1-day">1 Day</option>
                 <option value="1-week">1 Week</option>
                 <option value="1-month">1 Month</option>
             </select>
 
-            <label for="credit-card">Credit Card Number:</label>
-            <input type="text" id="credit-card" name="credit-card" required>
+            <label for="credit_card">Credit Card Number:</label>
+            <input type="text" id="credit_card" name="credit_card" required>
 
             <button type="submit" class="btn">Submit Reservation</button>
         </form>
     </section>
 
     <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Branch 1: 123 Dover #10-576</p>
-        <p>Branch 2: 456 Clementi #90-765</p>
-        <p>Email: HR@azoomcarrental.com</p>
+        <h2>Want to Reserve Upfront?</h2>
+        <p>Branch 1 Rental Office: 123 Dover #10-576</p>
+        <p>Branch 2 Rental Office: 456 Clementi #90-765</p>
+        <br>
+        <h2>Feedback here:</h2>
+        <p>Email: <a href="mailto:AZoomecar@hotmail.com">AZoomecar@hotmail.com</a></p>
     </section>
 
     <footer>
@@ -96,8 +99,8 @@
     </footer>
 
     <script>
-        document.getElementById("reservation-form").addEventListener("submit", function (event) {
-            const creditCard = document.getElementById("credit-card").value;
+        document.getElementById("reservation_form").addEventListener("submit", function (event) {
+            const creditCard = document.getElementById("credit_card").value;
 
             if (!validateCreditCard(creditCard)) {
                 alert("Please enter a valid credit card number.");
