@@ -16,9 +16,11 @@
         <div id="logo">
             <a href="index.html"><img src="resources/images/azoom_logo.png" alt="AZoom Car Rental Logo"></a>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars" style="font-size:70px; color:white"></i></a>
+        
+        <div>
+            <i class="fa-solid fa-x"></i>
+        </div>
         <nav>
             <ul id="links">
                 <li><a href="index.html">Home</a></li>
@@ -138,7 +140,8 @@
 
         function myFunction(){
             var x = document.getElementById("links");
-            if (x.style.display ==="block"){
+
+            if (x.style.display === "block"){
                 x.style.display = "none";
             } else {
                 x.style.display = "block";
