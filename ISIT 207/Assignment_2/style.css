@@ -8,6 +8,10 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none;
+}
+
 ::-webkit-scrollbar {
     width: 1.5em;
 }
@@ -180,6 +184,24 @@ nav ul li a:hover {
     100% { transform: translate(-100%, 0); }
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+    }
+    20% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0%);
+    }
+}
+
 @media screen and (max-width: 768px) {
     .car_item {
         width:80%;
@@ -272,6 +294,47 @@ form button {
 
 form button:hover {
     background-color: #333;
+}
+
+/* About Us */
+#about_container {
+    margin: 7% 10%;
+    display:flex;
+    align-items: center;
+}
+
+.about_left {
+    width:45%;
+    animation: fadeIn 2s 0.1s ease-out backwards;
+}
+
+.about_right {
+    float:right;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 2s 0.1s ease-out backwards;
+}
+
+.about_right span {
+    margin-left: 60px;
+}
+
+.about_right h1 {
+    color: #ff9800;
+    font-size:30px;
+    font-weight:600;
+}
+
+.about_right h2 {
+    font-size: 50px;
+    font-weight: 600;
+    margin-top:0;
+}
+
+.about_right p {
+    margin-top:1em;
+    font-size:20px;
 }
 
 
