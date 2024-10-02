@@ -295,12 +295,12 @@ form button:hover {
 
 .about_right h1 {
     color: #ff9800;
-    font-size:30px;
+    font-size:40px;
     font-weight:600;
 }
 
 .about_right h2 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 600;
     margin-top:0;
 }
@@ -326,7 +326,7 @@ form button:hover {
         margin-top:0;
     }
     .about_right p {
-        font-size:13px;
+        font-size:15px;
     }
 }
 
