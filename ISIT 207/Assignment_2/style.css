@@ -165,8 +165,7 @@ nav ul li a:hover {
     justify-content: space-around;
     overflow-x:scroll;
     overflow-y:hidden;
-    white-space: nowrap; 
-    
+    white-space: nowrap;
 }
 
 .car_item {
@@ -180,7 +179,7 @@ nav ul li a:hover {
     margin-bottom:20px;
     margin-left:20px;
     animation: scroll_right 15s linear infinite;
-    perspective: 700px;
+    
 }
 
 .car_item img {
