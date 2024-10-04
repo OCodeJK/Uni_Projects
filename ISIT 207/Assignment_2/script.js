@@ -12,6 +12,7 @@ function hamburger() {
         cross.style.display = "block";
     }
 }
+
 function cross() {
     var links = document.getElementById("links");
     var hamburger = document.getElementById("hamburger_icon");
@@ -24,12 +25,14 @@ function cross() {
     }
 }
 
-//Login form retriever
+
+//Login-form retriever
 document.getElementById("login_form").addEventListener("submit", function (event) {
+
     event.preventDefault();
 
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
     if (username && password) {
         alert("Login Successful!");
@@ -39,7 +42,7 @@ document.getElementById("login_form").addEventListener("submit", function (event
     }
 });
 
-//Reservation form retriever
+//Reservation-form retriever
 document.getElementById("reservation_form").addEventListener("submit", function (event) {
 
     event.preventDefault();
@@ -54,10 +57,6 @@ document.getElementById("reservation_form").addEventListener("submit", function 
     }
 
 });
-
-
-
-
 
 function validateCreditCard(cardNumber) {
     // Basic validation for a 16-digit credit card number
