@@ -27,8 +27,8 @@ function cross() {
 
 
 //Login-form retriever
-document.getElementById("login_form").addEventListener("submit", function (event) {
-
+login = document.getElementById("login_form");
+login && login.addEventListener("submit", function (event){
     event.preventDefault();
 
     const username = document.getElementById("username").value;
@@ -42,9 +42,10 @@ document.getElementById("login_form").addEventListener("submit", function (event
     }
 });
 
-//Reservation-form retriever
-document.getElementById("reservation_form").addEventListener("submit", function (event) {
 
+//Reservation-form retriever
+reservation = document.getElementById("reseveration_form");
+reservation && reservation.addEventListener("submit", function (event){
     event.preventDefault();
     const creditCard = document.getElementById("credit_card").value;
 
@@ -55,7 +56,6 @@ document.getElementById("reservation_form").addEventListener("submit", function 
     else {
         alert("Thank you for reserving with us!");
     }
-
 });
 
 function validateCreditCard(cardNumber) {
