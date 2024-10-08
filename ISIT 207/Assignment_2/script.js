@@ -66,6 +66,7 @@ function commenceLogin() {
         if (username == storedUsername || password == storedPassword) {
             alert("Login Successful!");
             window.location.assign("reservation.html");
+
         } else {
             alert('Incorrect credentials.');
         }
