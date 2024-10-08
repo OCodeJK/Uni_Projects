@@ -25,6 +25,9 @@ function cross() {
     }
 }
 
+localStorage.setItem('username', "admin");
+localStorage.setItem('password', "admin123");
+
 //Register-form retriever
 function registerUser() {
     var user_register = document.getElementById("register_username").value;
@@ -32,13 +35,17 @@ function registerUser() {
 
     register = document.getElementById("register_form");
     register.addEventListener("click", function (event){
-
         event.preventDefault();
-        
-        localStorage.setItem('username', user_register);
-        localStorage.setItem('password', pass_register);
 
-        window.location.assign('reservation.html');
+        if (localStorage.getItem('username')){
+            alert("Username already exists");
+            register.reset(); //reset register form
+        } else {
+            localStorage.setItem('username', user_register);
+            localStorage.setItem('password', pass_register);
+
+            window.location.assign('reservation.html');
+        }
     });
     
 }
@@ -60,7 +67,7 @@ function commenceLogin() {
             alert("Login Successful!");
             window.location.assign("reservation.html");
         } else {
-            alert('Incorrect credentials.')
+            alert('Incorrect credentials.');
         }
     });
 }
