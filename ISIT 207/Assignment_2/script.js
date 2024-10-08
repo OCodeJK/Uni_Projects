@@ -72,8 +72,10 @@ function commenceLogin() {
         //authetication
         if (username == storedUsername || password == storedPassword) {
             alert("Login Successful!");
+            window.location.assign("index.html");
         } else if (username == storedadminUser && password == storedadminPass){
             alert("Welcome back Employee!");
+            window.location.assign("index.html");
         } else {
             alert("Incorrect credentials.");
         }
