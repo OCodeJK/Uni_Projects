@@ -25,8 +25,9 @@ function cross() {
     }
 }
 
-localStorage.setItem('username', "admin");
-localStorage.setItem('password', "admin123");
+//sets up a admin account on startup
+localStorage.setItem('admin_username', "admin");
+localStorage.setItem('admin_password', "admin123");
 
 //Register-form retriever
 function registerUser() {
@@ -37,7 +38,7 @@ function registerUser() {
     register.addEventListener("click", function (event){
         event.preventDefault();
 
-        if (localStorage.getItem('username')){
+        if (localStorage.getItem('username') == user_register){
             alert("Username already exists");
             register.reset(); //reset register form
         } else {
@@ -53,29 +54,56 @@ function registerUser() {
 //Login-form retriever
 function commenceLogin() {
     login = document.getElementById("login_form");
-    login.addEventListener("click", function (event) {
+    login.addEventListener("submit", function (event) {
         event.preventDefault();
 
         //Register form user credentials in Local Storage
-        var storedUsername = localStorage.getItem('username');
-        var storedPassword = localStorage.getItem('password');
+        var storedUsername = localStorage.username;
+        var storedPassword = localStorage.password;
 
+        //Retrieve the already made admin account in Local Storage
+        var storedadminUser = localStorage.admin_username;
+        var storedadminPass = localStorage.admin_password;
+        
+        //get the DOM attribute username and password from login form
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
+        //authetication
         if (username == storedUsername || password == storedPassword) {
             alert("Login Successful!");
-            window.location.assign("reservation.html");
-
+        } else if (username == storedadminUser && password == storedadminPass){
+            alert("Welcome back Employee!");
         } else {
-            alert('Incorrect credentials.');
+            alert("Incorrect credentials.");
         }
     });
 }
 
+//Permanent login for now because admin_username is in localStorage on start up
+function checkLoginStatus(){
+    if ("username" in localStorage) {
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+        const reservationBtn = document.getElementById("reservationBtn");
+        const returningBtn = document.getElementById("returningBtn");
+
+        loginBtn.classList.add("hidden");
+        signupBtn.classList.add("hidden");
+
+        logoutBtn.classList.remove("hidden");
+        reservationBtn.classList.remove("hidden");
+        returningBtn.classList.remove("hidden");
+    }
+}
+
+checkLoginStatus();
+
 function logOut(){
-    localStorage.clear();
-    alert("Logging out...")
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    alert("Logging out...");
     window.location.assign('index.html');
 }
 
