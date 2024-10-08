@@ -32,7 +32,9 @@ function registerUser() {
 
     register = document.getElementById("register_form");
     register.addEventListener("click", function (event){
+
         event.preventDefault();
+        
         localStorage.setItem('username', user_register);
         localStorage.setItem('password', pass_register);
 
