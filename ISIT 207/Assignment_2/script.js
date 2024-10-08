@@ -30,16 +30,21 @@ function registerUser() {
     var user_register = document.getElementById("register_username").value;
     var pass_register = document.getElementById("register_password").value;
 
-    localStorage.setItem('username', user_register);
-    localStorage.setItem('password', pass_register);
+    register = document.getElementById("register_form");
+    register.addEventListener("click", function (event){
+        event.preventDefault();
+        localStorage.setItem('username', user_register);
+        localStorage.setItem('password', pass_register);
 
-    window.location.assign('reservation.html');
+        window.location.assign('reservation.html');
+    });
+    
 }
 
 //Login-form retriever
 function commenceLogin() {
     login = document.getElementById("login_form");
-    login && login.addEventListener("submit", function (event) {
+    login.addEventListener("click", function (event) {
         event.preventDefault();
 
         //Register form user credentials in Local Storage
@@ -60,19 +65,20 @@ function commenceLogin() {
 
 function logOut(){
     localStorage.clear();
+    alert("Logging out...")
     window.location.assign('index.html');
 }
 
 
 //Reservation-form retriever
 reservation = document.getElementById("reseveration_form");
-reservation && reservation.addEventListener("submit", function (event) {
+reservation && reservation.addEventListener("click", function (event) {
+    
     event.preventDefault();
     const creditCard = document.getElementById("credit_card").value;
 
     if (!validateCreditCard(creditCard)) {
         alert("Please enter a valid credit card number.");
-        event.preventDefault(); // Prevent form submission
     }
     else {
         alert("Thank you for reserving with us!");
