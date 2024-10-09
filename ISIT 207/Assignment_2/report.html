@@ -43,13 +43,19 @@
 
     <section id="report">
         <h2>Car Damage Check</h2>
-        <form id="report_form">
-            <label for="customer_id">Customer ID:</label>
-            <input type="text" id="customer_id" name="customer_id" required>
+        <br>
+        <form id="report_form" enctype="multipart/form-data">
+            <label for="licence_number">Customer's Licence Number:</label>
+            <input type="text" id="licence_number" name="licence_number" pattern="[A-Za-z]{1}[0-9]{7}[A-Za-z]{1}" required>
 
-            <!-- allow employee to put image of damage car if anyhere -->
+            <!-- allow employee to put image of damage car if there is -->
+            <label for="car_damage_image">Submit image for Prove:</label>
+            <input type="file" id="car_damage_image" name="car_damage_image" accept="image/*">
 
-            <button type="submit" class="btn">Return</button>
+            <!-- Image preview -->
+            <img id="preview" class="hidden" src="#" alt="Image Preview" width="600" height="600">
+
+            <button type="submit" class="btn">Report</button>
         </form>
 
     </section>

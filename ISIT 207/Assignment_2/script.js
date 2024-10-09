@@ -26,12 +26,12 @@ function cross() {
 }
 
 //sets up a admin account for testing on startup
-// localStorage.setItem('admin_username', "admin");
-// localStorage.setItem('admin_password', "admin123");
+localStorage.setItem('admin_username', "admin");
+localStorage.setItem('admin_password', "admin123");
 
 //sets up a user account for testing on startup
-localStorage.setItem('username', "Bob");
-localStorage.setItem('password', '123');
+// localStorage.setItem('username', "Bob");
+// localStorage.setItem('password', '123');
 
 //Register-form retriever
 function registerUser() {
@@ -171,8 +171,6 @@ try {
 
 
 
-
-
 //Reservation-form retriever
 reservation = document.getElementById("reservation_form");
 reservation && reservation.addEventListener("submit", function (event) {
@@ -221,11 +219,45 @@ reservation && reservation.addEventListener("submit", function (event) {
         anele.setAttribute("download", "Reservation_Receipt");
         anele.href = url;
         anele.click();
-        console.log(blobdtMIME);
         alert("Thank you for reserving with us!");
     }
 });
 
+// REPORT FORM SECTION
+const imageInput = document.getElementById("car_damage_image");
+const preview = document.getElementById("preview");
 
+report = document.getElementById("report_form");
+report && report.addEventListener("submit", function(event){
+    event.preventDefault();
 
+    licenceNumber = document.getElementById("licence_number").value;
+    imageString = imageInput.value;
 
+    let final_report = "Licence Number: *****" + licenceNumber.substr(licenceNumber.length - 4) + "\n" + "Photo Evidence: " + imageString;
+
+    let blobdtMIME = new Blob([final_report], { type: "text/plain" });
+    let url = URL.createObjectURL(blobdtMIME);
+    let anele = document.createElement("a");
+    anele.setAttribute("download", "Report_*****"+ licenceNumber.substr(licenceNumber.length - 4));
+    anele.href = url;
+    anele.click();
+    alert("Report Submitted.");
+
+});
+
+// Function to handle image selection and preview
+imageInput.addEventListener("change", function() {
+    const file = this.files[0]; // Get the selected file
+    if (file) {
+        const reader = new FileReader(); // Create a FileReader
+
+        reader.onload = function(e) {
+            // Set the preview image src to the file's data URL
+            preview.src = e.target.result;
+            preview.style.display = "block"; // Show the preview image
+        };
+
+        reader.readAsDataURL(file); // Read the file as a Data URL
+    }
+});
