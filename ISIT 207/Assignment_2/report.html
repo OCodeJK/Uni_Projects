@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="resources/images/favicon.ico">
+    <script src="script.js" defer></script>
     <title>File a Report - AZoom</title>
 </head>
 <body>
-    
+    <header>
+        <div id="logo">
+            <a href="index.html"><img src="resources/images/azoom_logo.png" alt="AZoom Car Rental Logo"></a>
+        </div>
+        <div id="hamburger_icon">
+            <a href="javascript:void(0);" class="icon" onclick="hamburger()"><i class="fa fa-bars"
+                    style="font-size:70px; color:white"></i></a>
+        </div>
+        <div id="cross_icon" class="hidden">
+            <a href="javascript:void(0);" class="icon" onclick="cross()"><i class="fa fa-close"
+                    style="font-size:70px; color:white;"></i></a>
+        </div>
+
+        <nav>
+            <ul id="links">
+                <li><a href="index.html">Home</a></li>
+                <li id="loginBtn"><a href="login.html">Login</a></li>
+                <li id="signupBtn"><a href="signup.html">Sign Up</a></li>
+                <li id="logoutBtn" class="hidden"><a href="#" onclick="logOut()">Log Out</a></li>
+                <li><a href="#about_container">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="banner">
+            <h1>File a report</h1>
+            <p>Honesty is our most important policy</p>
+        </div>
+    </section>
+
+    <section id="report">
+        <h2>Car Damage Check</h2>
+        <form id="report_form">
+            <label for="customer_id">Customer ID:</label>
+            <input type="text" id="customer_id" name="customer_id" required>
+
+            <!-- allow employee to put image of damage car if anyhere -->
+
+            <button type="submit" class="btn">Return</button>
+        </form>
+
+    </section>
+
+    <footer>
+        <div id="footer_container">
+            <span id="footer_left">
+                <a href="index.html"><img src="resources/images/azoom_logo.png" alt="logo" width="150px"></a>
+            </span>
+
+            <span id="footer_right">
+                <span>
+                    <p>Branch 1 Rental Office: 123 Dover #10-576</p>
+                    <p>Branch 2 Rental Office: 456 Clementi #90-765</p>
+                    <p id="footer_email">Email: <a href="mailto:AZoomecar@hotmail.com">AZoomecar@hotmail.com</a></p>
+                </span>
+            </span>
+        </div>
+
+
+        <p id="copyright">&copy; 2024 AZoom Car Rental. All rights reserved.</p>
+    </footer>
 </body>
 </html>

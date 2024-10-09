@@ -55,6 +55,8 @@ function registerUser() {
 
 }
 
+
+
 //Login-form retriever
 function commenceLogin() {
     login = document.getElementById("login_form");
@@ -179,6 +181,7 @@ reservation && reservation.addEventListener("submit", function (event) {
 
     //retrieve value upon submit button pressed from reservation-form
     const creditCard = document.getElementById("credit_card").value;
+    const licenceNo = document.getElementById("licence_number").value;
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const rentalStart = document.getElementById("rental_start").value;
@@ -186,8 +189,9 @@ reservation && reservation.addEventListener("submit", function (event) {
     const carModel = document.getElementById("car_select").value;
 
     //concatenating every info to put into the txt file receipt
-    let receipt = "AZoom Car Rental Receipt" //title
-        + "\n\n" + "Credit-Card: ************" + creditCard.substr(creditCard.length - 4) + "\n" //Credit card info
+    let receipt = "AZoom Car Rental Receipt"+ "\n" //title 
+        + "Licence Number: " + licenceNo + "\n" //Licence Number of the user
+        + "Credit-Card: ************" + creditCard.substr(creditCard.length - 4) + "\n" //Credit card info
         + "Name: " + name + "\n" //Name
         + "Email: " + email + "\n" //Email
         + "Duration: " + rentalStart + " - " + rentalEnd + "\n" //Duration of the rent
@@ -200,10 +204,17 @@ reservation && reservation.addEventListener("submit", function (event) {
         return regex.test(cardNumber);
     }
 
+    function validateLicenseCard(cardNumber) {
+        //Basic validation for 9 alphanumeric license number
+        const regex = /^[A-Za-z]{1}[0-9]{7}[A-Za-z]{1}$/;
+        return regex.test(cardNumber);
+    }
+
     if (!validateCreditCard(creditCard)) {
         alert("Please enter a valid credit card number.");
-    }
-    else {
+    } else if (!validateLicenseCard(licenceNo)){
+        alert("Please enter a valid license number.");
+    } else {
         let blobdtMIME = new Blob([receipt], { type: "text/plain" });
         let url = URL.createObjectURL(blobdtMIME);
         let anele = document.createElement("a");
