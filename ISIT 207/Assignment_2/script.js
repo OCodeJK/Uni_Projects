@@ -141,7 +141,6 @@ function logOut() {
 }
 
 //<---  RESERVATION FORM PORTION --->//
-
 try {
     //set the start date to the current date from local computer
     var now = new Date();
