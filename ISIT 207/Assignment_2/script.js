@@ -25,9 +25,13 @@ function cross() {
     }
 }
 
-//sets up a admin account on startup
-localStorage.setItem('admin_username', "admin");
-localStorage.setItem('admin_password', "admin123");
+//sets up a admin account for testing on startup
+// localStorage.setItem('admin_username', "admin");
+// localStorage.setItem('admin_password', "admin123");
+
+//sets up a user account for testing on startup
+localStorage.setItem('username', "Bob");
+localStorage.setItem('password', '123');
 
 //Register-form retriever
 function registerUser() {
@@ -87,36 +91,41 @@ function commenceLogin() {
 //Permanent login for now because admin_username is in localStorage on start up
 function checkLoginStatus(){
     //check if the key "username" is in localStorage
-    if ("username" in localStorage) {
-        const loginBtn = document.getElementById("loginBtn");
-        const signupBtn = document.getElementById("signupBtn");
-        const logoutBtn = document.getElementById("logoutBtn");
-        const reservationBtn = document.getElementById("reservationBtn");
-        const returningBtn = document.getElementById("returningBtn");
-
-        loginBtn.classList.add("hidden");
-        signupBtn.classList.add("hidden");
-
-        logoutBtn.classList.remove("hidden");
-        reservationBtn.classList.remove("hidden");
-        returningBtn.classList.remove("hidden");
-
-    } else if ("admin_username" in localStorage) {
-        const loginBtn = document.getElementById("loginBtn");
-        const signupBtn = document.getElementById("signupBtn");
-        const logoutBtn = document.getElementById("logoutBtn");
-        const reservationBtn = document.getElementById("reservationBtn");
-        const returningBtn = document.getElementById("returningBtn");
-        const fileReportBtn = document.getElementById("fileReportBtn");
-
-        loginBtn.classList.add("hidden");
-        signupBtn.classList.add("hidden");
-
-        logoutBtn.classList.remove("hidden");
-        reservationBtn.classList.remove("hidden");
-        returningBtn.classList.remove("hidden");
-        fileReportBtn.classList.remove("hidden");
+    try {
+        if ("username" in localStorage) {
+            const loginBtn = document.getElementById("loginBtn");
+            const signupBtn = document.getElementById("signupBtn");
+            const logoutBtn = document.getElementById("logoutBtn");
+            const reservationBtn = document.getElementById("reservationBtn");
+            const returningBtn = document.getElementById("returningBtn");
+    
+            loginBtn.classList.add("hidden");
+            signupBtn.classList.add("hidden");
+    
+            logoutBtn.classList.remove("hidden");
+            reservationBtn.classList.remove("hidden");
+            returningBtn.classList.remove("hidden");
+    
+        } else if ("admin_username" in localStorage) {
+            const loginBtn = document.getElementById("loginBtn");
+            const signupBtn = document.getElementById("signupBtn");
+            const logoutBtn = document.getElementById("logoutBtn");
+            const reservationBtn = document.getElementById("reservationBtn");
+            const returningBtn = document.getElementById("returningBtn");
+            const fileReportBtn = document.getElementById("fileReportBtn");
+    
+            loginBtn.classList.add("hidden");
+            signupBtn.classList.add("hidden");
+    
+            logoutBtn.classList.remove("hidden");
+            reservationBtn.classList.remove("hidden");
+            returningBtn.classList.remove("hidden");
+            fileReportBtn.classList.remove("hidden");
+        }
+    } catch (TypeError){
+        return true;
     }
+    
 }
 
 checkLoginStatus();
@@ -133,22 +142,47 @@ function logOut(){
 
 
 //Reservation-form retriever
-reservation = document.getElementById("reseveration_form");
-reservation && reservation.addEventListener("click", function (event) {
+reservation = document.getElementById("reservation_form");
+reservation && reservation.addEventListener("submit", function (event) {
     
     event.preventDefault();
     const creditCard = document.getElementById("credit_card").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    //TODO rental period using data format
+
+    const carModel = document.getElementById("car_select").value;
+
+    //concatenating every info to put into the txt file receipt
+    let receipt = "AZoom Car Rental Receipt" //title
+    + "\n\n" + "Credit-Card: ************" + creditCard.substr(creditCard.length - 4) + "\n" //Credit card info
+    + "Name: " + name + "\n" //Name
+    + "Email: " + email + "\n" //Email
+    + "Duration: " //TODO insert rental period here
+    + "Car Model: " + carModel; //Car Model
+
+
+    function validateCreditCard(cardNumber) {
+        // Basic validation for a 16-digit credit card number
+        const regex = /^[0-9]{16}$/;
+        return regex.test(cardNumber);
+    }
 
     if (!validateCreditCard(creditCard)) {
         alert("Please enter a valid credit card number.");
     }
     else {
+        let blobdtMIME = new Blob([receipt], { type: "text/plain" });
+        let url = URL.createObjectURL(blobdtMIME);
+        let anele = document.createElement("a");
+        anele.setAttribute("download", "Reservation_Receipt");
+        anele.href= url;
+        anele.click();
+        console.log(blobdtMIME);
         alert("Thank you for reserving with us!");
     }
 });
 
-function validateCreditCard(cardNumber) {
-    // Basic validation for a 16-digit credit card number
-    const regex = /^[0-9]{16}$/;
-    return regex.test(cardNumber);
-}
+
+
+
