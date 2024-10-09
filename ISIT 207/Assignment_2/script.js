@@ -234,7 +234,10 @@ report && report.addEventListener("submit", function(event){
     licenceNumber = document.getElementById("licence_number").value;
     imageString = imageInput.value;
 
-    let final_report = "Licence Number: *****" + licenceNumber.substr(licenceNumber.length - 4) + "\n" + "Photo Evidence: " + imageString;
+    let final_report = "Employee Report Submission" + "\n" 
+    + "Licence Number: *****" //concat together licence number and photo evidence
+    + licenceNumber.substr(licenceNumber.length - 4) + "\n" 
+    + "Photo Evidence: " + imageString; 
 
     let blobdtMIME = new Blob([final_report], { type: "text/plain" });
     let url = URL.createObjectURL(blobdtMIME);
