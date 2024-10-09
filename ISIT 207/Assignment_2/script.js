@@ -69,13 +69,15 @@ function commenceLogin() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
 
-        //authetication
+        //Authentication
         if (username == storedUsername || password == storedPassword) {
             alert("Login Successful!");
             window.location.assign("index.html");
+
         } else if (username == storedadminUser && password == storedadminPass){
             alert("Welcome back Employee!");
             window.location.assign("index.html");
+
         } else {
             alert("Incorrect credentials.");
         }
@@ -84,6 +86,7 @@ function commenceLogin() {
 
 //Permanent login for now because admin_username is in localStorage on start up
 function checkLoginStatus(){
+    //check if the key "username" is in localStorage
     if ("username" in localStorage) {
         const loginBtn = document.getElementById("loginBtn");
         const signupBtn = document.getElementById("signupBtn");
@@ -97,16 +100,35 @@ function checkLoginStatus(){
         logoutBtn.classList.remove("hidden");
         reservationBtn.classList.remove("hidden");
         returningBtn.classList.remove("hidden");
+
+    } else if ("admin_username" in localStorage) {
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+        const logoutBtn = document.getElementById("logoutBtn");
+        const reservationBtn = document.getElementById("reservationBtn");
+        const returningBtn = document.getElementById("returningBtn");
+        const fileReportBtn = document.getElementById("fileReportBtn");
+
+        loginBtn.classList.add("hidden");
+        signupBtn.classList.add("hidden");
+
+        logoutBtn.classList.remove("hidden");
+        reservationBtn.classList.remove("hidden");
+        returningBtn.classList.remove("hidden");
+        fileReportBtn.classList.remove("hidden");
     }
 }
 
 checkLoginStatus();
 
 function logOut(){
-    localStorage.removeItem("username");
-    localStorage.removeItem("password");
-    alert("Logging out...");
-    window.location.assign('index.html');
+    //check if the "username" key is in localStorage
+    if ("username" in localStorage){
+        localStorage.removeItem("username");
+        localStorage.removeItem("password");
+        alert("Logging out...");
+        window.location.assign('index.html');
+    }
 }
 
 
