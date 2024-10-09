@@ -39,10 +39,10 @@ function registerUser() {
     var pass_register = document.getElementById("register_password").value;
 
     register = document.getElementById("register_form");
-    register.addEventListener("click", function (event){
+    register.addEventListener("click", function (event) {
         event.preventDefault();
 
-        if (localStorage.getItem('username') == user_register){
+        if (localStorage.getItem('username') == user_register) {
             alert("Username already exists");
             register.reset(); //reset register form
         } else {
@@ -52,7 +52,7 @@ function registerUser() {
             window.location.assign('reservation.html');
         }
     });
-    
+
 }
 
 //Login-form retriever
@@ -68,7 +68,7 @@ function commenceLogin() {
         //Retrieve the already made admin account in Local Storage
         var storedadminUser = localStorage.admin_username;
         var storedadminPass = localStorage.admin_password;
-        
+
         //get the DOM attribute username and password from login form
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
@@ -78,7 +78,7 @@ function commenceLogin() {
             alert("Login Successful!");
             window.location.assign("index.html");
 
-        } else if (username == storedadminUser && password == storedadminPass){
+        } else if (username == storedadminUser && password == storedadminPass) {
             alert("Welcome back Employee!");
             window.location.assign("index.html");
 
@@ -89,7 +89,7 @@ function commenceLogin() {
 }
 
 //Permanent login for now because admin_username is in localStorage on start up
-function checkLoginStatus(){
+function checkLoginStatus() {
     //check if the key "username" is in localStorage
     try {
         if ("username" in localStorage) {
@@ -98,14 +98,14 @@ function checkLoginStatus(){
             const logoutBtn = document.getElementById("logoutBtn");
             const reservationBtn = document.getElementById("reservationBtn");
             const returningBtn = document.getElementById("returningBtn");
-    
+
             loginBtn.classList.add("hidden");
             signupBtn.classList.add("hidden");
-    
+
             logoutBtn.classList.remove("hidden");
             reservationBtn.classList.remove("hidden");
             returningBtn.classList.remove("hidden");
-    
+
         } else if ("admin_username" in localStorage) {
             const loginBtn = document.getElementById("loginBtn");
             const signupBtn = document.getElementById("signupBtn");
@@ -113,26 +113,24 @@ function checkLoginStatus(){
             const reservationBtn = document.getElementById("reservationBtn");
             const returningBtn = document.getElementById("returningBtn");
             const fileReportBtn = document.getElementById("fileReportBtn");
-    
+
             loginBtn.classList.add("hidden");
             signupBtn.classList.add("hidden");
-    
+
             logoutBtn.classList.remove("hidden");
             reservationBtn.classList.remove("hidden");
             returningBtn.classList.remove("hidden");
             fileReportBtn.classList.remove("hidden");
         }
-    } catch (TypeError){
-        return true;
-    }
-    
+    } catch (TypeError) {}
+
 }
 
 checkLoginStatus();
 
-function logOut(){
+function logOut() {
     //check if the "username" key is in localStorage
-    if ("username" in localStorage){
+    if ("username" in localStorage) {
         localStorage.removeItem("username");
         localStorage.removeItem("password");
         alert("Logging out...");
@@ -140,26 +138,60 @@ function logOut(){
     }
 }
 
+//<---  RESERVATION FORM PORTION --->//
+
+try {
+    //set the start date to the current date from local computer
+    var now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById('rental_start').value = now.toISOString().slice(0, 16);
+
+    //get the date of 1 week later
+    var oneWeekLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    //for formatting date
+    function formatDate(date) {
+        date = date.toISOString().slice(0, 16);
+        return date;
+    }
+
+    // set min-max start date from the current date from local computer
+    let dateInputStart = document.getElementById("rental_start");
+    dateInputStart.min = new Date().toISOString().slice(0, new Date().toISOString().lastIndexOf(":"));
+    document.getElementById("rental_start").max = formatDate(oneWeekLater);
+
+    // set min-max end date from the current date from local computer
+    let dateInputEnd = document.getElementById("rental_end");
+    dateInputEnd.min = new Date().toISOString().slice(0, new Date().toISOString().lastIndexOf(":"));
+    document.getElementById("rental_end").max = formatDate(oneWeekLater);
+} catch (TypeError) {}
+
+
+
+
+
 
 //Reservation-form retriever
 reservation = document.getElementById("reservation_form");
 reservation && reservation.addEventListener("submit", function (event) {
-    
+
     event.preventDefault();
+
+    //retrieve value upon submit button pressed from reservation-form
     const creditCard = document.getElementById("credit_card").value;
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
-    //TODO rental period using data format
-
+    const rentalStart = document.getElementById("rental_start").value;
+    const rentalEnd = document.getElementById("rental_end").value;
     const carModel = document.getElementById("car_select").value;
 
     //concatenating every info to put into the txt file receipt
     let receipt = "AZoom Car Rental Receipt" //title
-    + "\n\n" + "Credit-Card: ************" + creditCard.substr(creditCard.length - 4) + "\n" //Credit card info
-    + "Name: " + name + "\n" //Name
-    + "Email: " + email + "\n" //Email
-    + "Duration: " //TODO insert rental period here
-    + "Car Model: " + carModel; //Car Model
+        + "\n\n" + "Credit-Card: ************" + creditCard.substr(creditCard.length - 4) + "\n" //Credit card info
+        + "Name: " + name + "\n" //Name
+        + "Email: " + email + "\n" //Email
+        + "Duration: " + rentalStart + " - " + rentalEnd + "\n" //Duration of the rent
+        + "Car Model: " + carModel; //Car Model
 
 
     function validateCreditCard(cardNumber) {
@@ -176,7 +208,7 @@ reservation && reservation.addEventListener("submit", function (event) {
         let url = URL.createObjectURL(blobdtMIME);
         let anele = document.createElement("a");
         anele.setAttribute("download", "Reservation_Receipt");
-        anele.href= url;
+        anele.href = url;
         anele.click();
         console.log(blobdtMIME);
         alert("Thank you for reserving with us!");
