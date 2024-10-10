@@ -168,8 +168,6 @@ try {
 } catch (TypeError) {}
 
 
-
-
 //Reservation-form retriever
 reservation = document.getElementById("reservation_form");
 reservation && reservation.addEventListener("submit", function (event) {
@@ -223,6 +221,7 @@ reservation && reservation.addEventListener("submit", function (event) {
         alert("Thank you for reserving with us!");
     }
 });
+//END OF RESERVATION FORM
 
 // REPORT FORM SECTION
 const imageInput = document.getElementById("car_damage_image");
