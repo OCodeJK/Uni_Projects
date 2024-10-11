@@ -82,7 +82,7 @@ function commenceLogin() {
 
         } else if (username == storedadminUser && password == storedadminPass) {
             alert("Welcome back Employee!");
-            window.location.assign("index.html");
+            window.location.assign("report.html");
             localStorage.setItem('isLoggedIn', true);
 
         } else {
@@ -132,7 +132,7 @@ function checkLoginStatus() {
 checkLoginStatus();
 
 function logOut() {
-    //check if the "username" key is in localStorage
+    //check if the "username" or "admin_username" key is in localStorage
     if ("username" in localStorage || "admin_username" in localStorage) {
         localStorage.removeItem("isLoggedIn");
         alert("Logging out...");
