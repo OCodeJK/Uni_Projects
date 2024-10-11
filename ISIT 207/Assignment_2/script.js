@@ -25,13 +25,9 @@ function cross() {
     }
 }
 
-//sets up a admin account for testing on startup
+
 localStorage.setItem('admin_username', "admin");
 localStorage.setItem('admin_password', "admin123");
-
-//sets up a user account for testing on startup
-// localStorage.setItem('username', "Bob");
-// localStorage.setItem('password', '123');
 
 //Register-form retriever
 function registerUser() {
@@ -48,6 +44,9 @@ function registerUser() {
         } else {
             localStorage.setItem('username', user_register);
             localStorage.setItem('password', pass_register);
+            localStorage.setItem('isLoggedIn', true);
+
+            alert("Welcome, " + user_register);
 
             window.location.assign('reservation.html');
         }
@@ -77,12 +76,14 @@ function commenceLogin() {
 
         //Authentication
         if (username == storedUsername || password == storedPassword) {
-            alert("Login Successful!");
+            alert("Login Successful! Welcome back," + username);
             window.location.assign("index.html");
+            localStorage.setItem('isLoggedIn', true);
 
         } else if (username == storedadminUser && password == storedadminPass) {
             alert("Welcome back Employee!");
             window.location.assign("index.html");
+            localStorage.setItem('isLoggedIn', true);
 
         } else {
             alert("Incorrect credentials.");
@@ -94,7 +95,7 @@ function commenceLogin() {
 function checkLoginStatus() {
     //check if the key "username" is in localStorage
     try {
-        if ("username" in localStorage) {
+        if ("username" in localStorage && localStorage.getItem('isLoggedIn') == 'true') {
             const loginBtn = document.getElementById("loginBtn");
             const signupBtn = document.getElementById("signupBtn");
             const logoutBtn = document.getElementById("logoutBtn");
@@ -108,7 +109,7 @@ function checkLoginStatus() {
             reservationBtn.classList.remove("hidden");
             returningBtn.classList.remove("hidden");
 
-        } else if ("admin_username" in localStorage) {
+        } else if ("admin_username" in localStorage && localStorage.getItem('isLoggedIn') == 'true') {
             const loginBtn = document.getElementById("loginBtn");
             const signupBtn = document.getElementById("signupBtn");
             const logoutBtn = document.getElementById("logoutBtn");
@@ -132,9 +133,8 @@ checkLoginStatus();
 
 function logOut() {
     //check if the "username" key is in localStorage
-    if ("username" in localStorage) {
-        localStorage.removeItem("username");
-        localStorage.removeItem("password");
+    if ("username" in localStorage || "admin_username" in localStorage) {
+        localStorage.removeItem("isLoggedIn");
         alert("Logging out...");
         window.location.assign('index.html');
     }
