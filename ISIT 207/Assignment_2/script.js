@@ -112,15 +112,11 @@ function checkLoginStatus() {
             const loginBtn = document.getElementById("loginBtn");
             const signupBtn = document.getElementById("signupBtn");
             const logoutBtn = document.getElementById("logoutBtn");
-            const reservationBtn = document.getElementById("reservationBtn");
-            const returningBtn = document.getElementById("returningBtn");
 
             loginBtn.classList.add("hidden");
             signupBtn.classList.add("hidden");
 
             logoutBtn.classList.remove("hidden");
-            reservationBtn.classList.remove("hidden");
-            returningBtn.classList.remove("hidden");
         }
     } catch (TypeError) {}
 
