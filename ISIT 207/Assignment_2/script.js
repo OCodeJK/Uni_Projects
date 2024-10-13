@@ -112,15 +112,6 @@ function checkLoginStatus() {
             reservationBtn.classList.remove("hidden");
             returningBtn.classList.remove("hidden");
 
-        } else if ("admin_username" in localStorage && localStorage.getItem('isLoggedIn') == 'true') {
-            const loginBtn = document.getElementById("loginBtn");
-            const signupBtn = document.getElementById("signupBtn");
-            const logoutBtn = document.getElementById("logoutBtn");
-
-            loginBtn.classList.add("hidden");
-            signupBtn.classList.add("hidden");
-
-            logoutBtn.classList.remove("hidden");
         }
     } catch (TypeError) {}
 
