@@ -234,7 +234,7 @@ report && report.addEventListener("submit", function(event){
     let blobdtMIME = new Blob([final_report], { type: "text/plain" });
     let url = URL.createObjectURL(blobdtMIME);
     let anele = document.createElement("a");
-    anele.setAttribute("download", "Report_*****"+ licenceNumber.substr(licenceNumber.length - 4));
+    anele.setAttribute("download", "Report_"+ licenceNumber.substr(licenceNumber.length - 4));
     anele.href = url;
     anele.click();
     alert("Report Submitted.");
