@@ -25,7 +25,7 @@ function cross() {
     }
 }
 
-
+//permanent admin account in localStorage (to simulate employee account being set up.)
 localStorage.setItem('admin_username', "admin");
 localStorage.setItem('admin_password', "admin123");
 
